@@ -30,7 +30,18 @@ exports.addIncome = async (req, res) => {
 };
 
 // Get All Income Sources
-exports.getAllIncome = async (req, res) => {};
+exports.getAllIncome = async (req, res) => {
+  const userId = req.user.id;
+
+  try {
+    const incomes = await Income.find({ userId }).sort({ date: -1 });
+    res.status(200).json(incomes);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error fetching income sources", error: error.message });
+  }
+};
 
 // Delete Income Source
 exports.deleteIncome = async (req, res) => {};
