@@ -3,6 +3,8 @@ import AuthLayout from "../../components/layouts/AuthLayout";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Inputs/Input";
 import { validateEmail } from "../../utils/helper";
+import axiosInstance from "../../utils/axiosInstance";
+import { API_PATHS } from "../../utils/apiPaths";
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -25,6 +27,25 @@ const LoginPage = () => {
         }
 
         setError("");
+
+        // Login API call
+        try {
+            const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
+                email,
+                password
+            });
+            const { token, user } = response.data;
+            if (token) {
+                localStorage.setItem("token", token);
+                navigate("/dashboard");
+            }
+        } catch (err) {
+            if (err.response && err.response.data) {
+                setError(err.response.data.message || "Login failed, please try again.");
+            } else {
+                setError("An unexpected error occurred, please try again later.");
+            }
+        }
     }
 
     return (
@@ -68,6 +89,6 @@ const LoginPage = () => {
             </div>
         </AuthLayout>
     );
-}
+};
 
 export default LoginPage;
