@@ -38,3 +38,18 @@ export const prepareExpanseBarChartData = (data = []) => {
     return { date: fmt(d), amount: grouped[iso] || 0 };
   });
 };
+
+export const prepareIncomeBarChartData = (data = []) => {
+  const grouped = {};
+  data.forEach(({ date, amount }) => {
+    const key = new Date(date).toISOString().slice(0, 10);
+    grouped[key] = (grouped[key] || 0) + amount;
+  });
+
+  return Array.from({ length: 30 }, (_, i) => {
+    const d = new Date();
+    d.setDate(d.getDate() - (29 - i));
+    const iso = d.toISOString().slice(0, 10);
+    return { date: fmt(d), amount: grouped[iso] || 0 };
+  });
+};
