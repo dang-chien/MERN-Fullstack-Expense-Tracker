@@ -1,3 +1,4 @@
+const XLSX = require("xlsx");
 const Income = require("../models/Income");
 
 // Add Income Source
@@ -56,4 +57,27 @@ exports.deleteIncome = async (req, res) => {
 };
 
 // Download Income Sources as Excel
-exports.downloadIncomeExcel = async (req, res) => {};
+exports.downloadIncomeExcel = async (req, res) => {
+  const userId = req.user.id;
+  try {
+    const income = await Income.find({ userId }).sort({ date: -1 });
+
+    // Prepare data for Excel
+    const data = income.map((item) => ({
+      Source: item.source,
+      Amount: item.amount,
+      Date: item.date.toISOString().split("T")[0],
+    }));
+
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet(data);
+    XLSX.utils.book_append_sheet(wb, ws, "Income");
+    XLSX.writeFile(wb, "income_details.xlsx");
+    res.download("income_details.xlsx");
+  } catch (error) {
+    res.status(500).json({
+      message: "Error downloading income Excel",
+      error: error.message,
+    });
+  }
+};
