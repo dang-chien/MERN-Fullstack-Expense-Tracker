@@ -15,6 +15,7 @@
   body {
     background-color: #fcfbfc;
     overflow-x: hidden;
+    user-select: none;
   }
 }
 
