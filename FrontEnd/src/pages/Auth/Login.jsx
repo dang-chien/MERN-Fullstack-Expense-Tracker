@@ -31,7 +31,6 @@ const LoginPage = () => {
 
         setError("");
 
-        // Login API call
         try {
             const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
                 email,
@@ -83,7 +82,7 @@ const LoginPage = () => {
                         LOGIN
                     </button>
 
-                    <p className="text-[13px] text-slate-800 mt-3">
+                    <p className="text-[13px] text-slate-800 mt-3 text-center">
                         Don't have an account? {""}
                         <Link className="text-primary font-medium underline" to='/signup'>
                             Sign Up
