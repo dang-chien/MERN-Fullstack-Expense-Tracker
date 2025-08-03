@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import SideMenu from "./SideMenu";
 
@@ -20,7 +21,9 @@ const Navbar = (props) => {
                 )}
             </button>
 
-            <h2 className="text-lg font-medium text-black">Expense Tracker</h2>
+            <Link to="/dashboard">
+                <h2 className="text-lg font-medium text-black">Expense Tracker</h2>
+            </Link>
 
             {openSideMenu && (
                 <div className="fixed top-[61px] -ml-4 bg-white">
