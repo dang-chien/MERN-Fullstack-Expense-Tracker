@@ -14,6 +14,7 @@ const SignUpPage = () => {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const { updateUser } = useContext(UserContext);
 
@@ -37,16 +38,23 @@ const SignUpPage = () => {
         }
 
         if (!password) {
-            setError("Password cannot be empty!");
+            setError("Please enter a password!");
+            return;
+        }
+
+        if (!confirmPassword) {
+            setError("Please confirm your password!");
+            return;
+        }
+
+        if (confirmPassword !== password) {
+            setError("Passwords do not match!");
             return;
         }
 
         setError("");
 
-        // Singup API call
         try {
-
-            // Upload image if present
             if (profilePic) {
                 const imgUploadRes = await uploadImage(profilePic);
                 profileImageUrl = imgUploadRes.imageUrl || "";
@@ -104,15 +112,20 @@ const SignUpPage = () => {
                             placeholder="john@example.com"
                             type="text"
                         />
-                        <div className="col-span-2">
-                            <Input
-                                value={password}
-                                onChange={({ target }) => setPassword(target.value)}
-                                label="Password"
-                                placeholder="********"
-                                type="password"
-                            />
-                        </div>
+                        <Input
+                            value={password}
+                            onChange={({ target }) => setPassword(target.value)}
+                            label="Password"
+                            placeholder="********"
+                            type="password"
+                        />
+                        <Input
+                            value={confirmPassword}
+                            onChange={({ target }) => setConfirmPassword(target.value)}
+                            label="Confirm Password"
+                            placeholder="********"
+                            type="password"
+                        />
                     </div>
 
                     {error && <p className="text-red-500 text-xs pb-2.5 font-medium">{error}</p>}
@@ -124,15 +137,15 @@ const SignUpPage = () => {
                         SIGN UP
                     </button>
 
-                    <p className="text-[13px] text-slate-800 mt-3">
+                    <p className="text-[13px] text-slate-800 mt-3 text-center">
                         Already have an account? {""}
                         <Link className="text-primary font-medium underline" to='/login'>
                             Log In
                         </Link>
                     </p>
                 </form>
-            </div>
-        </AuthLayout>
+            </div >
+        </AuthLayout >
     );
 }
 
