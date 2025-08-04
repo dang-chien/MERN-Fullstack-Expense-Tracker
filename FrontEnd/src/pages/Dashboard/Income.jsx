@@ -8,7 +8,7 @@ import Modal from "../../components/Modal";
 import AddIncomeForm from "../../components/Income/AddIncomeForm";
 import { toast } from "react-hot-toast";
 import IncomeList from "../../components/Income/IncomeList";
-import DeleteAlert from "../../components/DeleteAlert";
+import ConfirmAlert from "../../components/ConfirmAlert";
 
 const IncomePage = () => {
     useUserAuth();
@@ -150,9 +150,11 @@ const IncomePage = () => {
                     onClose={() => setOpenDeleteAlert({ show: false, data: null })}
                     title="Delete Income"
                 >
-                    <DeleteAlert
+                    <ConfirmAlert
                         content="Are you sure you want to delete this income transaction?"
-                        onDelete={() => { deleteIncome(openDeleteAlert.data) }}
+                        onConfirm={() => { deleteIncome(openDeleteAlert.data) }}
+                        confirmContent="Delete"
+                        color="error"
                     />
                 </Modal>
             </div>

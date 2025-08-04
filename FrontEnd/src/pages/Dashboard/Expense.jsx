@@ -8,7 +8,7 @@ import ExpenseOverview from "../../components/Expense/ExpenseOverview";
 import AddExpenseForm from "../../components/Expense/AddExpenseForm";
 import Modal from "../../components/Modal";
 import ExpenseList from "../../components/Expense/ExpenseList";
-import DeleteAlert from "../../components/DeleteAlert";
+import ConfirmAlert from "../../components/ConfirmAlert";
 
 const ExpensePage = () => {
     useUserAuth();
@@ -147,9 +147,11 @@ const ExpensePage = () => {
                     onClose={() => setOpenDeleteAlert({ show: false, data: null })}
                     title="Delete Expense"
                 >
-                    <DeleteAlert
+                    <ConfirmAlert
                         content="Are you sure you want to delete this expense transaction?"
-                        onDelete={() => { deleteExpense(openDeleteAlert.data) }}
+                        onConfirm={() => { deleteExpense(openDeleteAlert.data) }}
+                        confirmContent="Delete"
+                        color="error"
                     />
                 </Modal>
             </div>
