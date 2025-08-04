@@ -7,6 +7,8 @@ import { API_PATHS } from "../../utils/apiPaths";
 import ExpenseOverview from "../../components/Expense/ExpenseOverview";
 import AddExpenseForm from "../../components/Expense/AddExpenseForm";
 import Modal from "../../components/Modal";
+import ExpenseList from "../../components/Expense/ExpenseList";
+import DeleteAlert from "../../components/DeleteAlert";
 
 const ExpensePage = () => {
     useUserAuth();
@@ -101,13 +103,36 @@ const ExpensePage = () => {
                             onAddExpense={() => setOpenAddExpenseModal(true)}
                         />
                     </div>
+
+                    <ExpenseList
+                        transactions={expenseData}
+                        onDelete={(id) => {
+                            setOpenDeleteAlert({
+                                show: true,
+                                data: id
+                            });
+                        }}
+                        onDownload={handleDownloadExpenseDetails}
+                    />
                 </div>
+
                 <Modal
                     isOpen={openAddExpenseModal}
                     onClose={() => setOpenAddExpenseModal(false)}
                     title="Add Expense"
                 >
                     <AddExpenseForm onAddExpense={handleAddExpense} />
+                </Modal>
+
+                <Modal
+                    isOpen={openDeleteAlert.show}
+                    onClose={() => setOpenDeleteAlert({ show: false, data: null })}
+                    title="Delete Expense"
+                >
+                    <DeleteAlert
+                        content="Are you sure you want to delete this expense transaction?"
+                        onDelete={() => { deleteExpense(openDeleteAlert.data) }}
+                    />
                 </Modal>
             </div>
         </DashboardLayout>
