@@ -1,8 +1,10 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { SIDE_MENU_DATA } from "../../utils/data";
 import { UserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 import CharAvatar from "../Cards/CharAvatar";
+import Modal from "../Modal";
+import ConfirmAlert from "../ConfirmAlert";
 
 const SideMenu = (props) => {
     const { activeMenu } = props;
@@ -12,7 +14,7 @@ const SideMenu = (props) => {
 
     const handleClick = (route) => {
         if (route === "/logout") {
-            handleLogout();
+            setOpenLogoutModal(true);
             return;
         }
         navigate(route);
@@ -23,6 +25,8 @@ const SideMenu = (props) => {
         clearUser();
         navigate("/login");
     }
+
+    const [openLogoutModal, setOpenLogoutModal] = useState(false);
 
     return (
         <div className="w-64 h-[calc(100vh-61px)] bg-white border-r border-gray-200/50 p-5 sticky top-[61px] z-20">
@@ -60,6 +64,19 @@ const SideMenu = (props) => {
                     {item.label}
                 </button>
             ))}
+
+            <Modal
+                isOpen={openLogoutModal}
+                onClose={() => setOpenLogoutModal(false)}
+                title="Logout"
+            >
+                <ConfirmAlert
+                    content="Are you sure you want to logout?"
+                    onConfirm={handleLogout}
+                    confirmContent="Logout"
+                    color="error"
+                />
+            </Modal>
         </div >
     )
 };
