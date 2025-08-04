@@ -43,7 +43,7 @@ const AddIncomeForm = (props) => {
             <div className="flex justify-end mt-6">
                 <button
                     type="button"
-                    className="add-btn add-btn-fill"
+                    className="add-btn primary-btn-fill"
                     onClick={() => {
                         console.log("Adding Income:", income);
                         onAddIncome(income)
