@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useUserAuth } from "../../hooks/useUserAuth";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
 import IncomeOverview from "../../components/Income/IncomeOverview";
 import axiosInstance from "../../utils/axiosInstance";
@@ -10,6 +11,8 @@ import IncomeList from "../../components/Income/IncomeList";
 import DeleteAlert from "../../components/DeleteAlert";
 
 const IncomePage = () => {
+    useUserAuth();
+
     const [incomeData, setIncomeData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [openDeleteAlert, setOpenDeleteAlert] = useState({
@@ -24,9 +27,7 @@ const IncomePage = () => {
         setLoading(true);
 
         try {
-            const response = await axiosInstance.get(
-                `${API_PATHS.INCOME.GET_ALL_INCOME}`
-            );
+            const response = await axiosInstance.get(API_PATHS.INCOME.GET_ALL_INCOME);
 
             if (response.data) {
                 setIncomeData(response.data);
