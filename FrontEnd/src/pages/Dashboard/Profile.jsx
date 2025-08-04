@@ -35,8 +35,6 @@ const Profile = () => {
 
     const handleDeleteAccount = async () => { };
 
-    const handleContactSupport = async () => { };
-
     useEffect(() => {
         fetchUserProfile();
         return () => { };
@@ -47,6 +45,11 @@ const Profile = () => {
             <div className="my-5 mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="card flex items-center justify-between flex-col">
+                        <div className="flex flex-col items-center justify-center w-full">
+                            <h2 className="text-2xl font-bold mb-2">User Profile</h2>
+                            <p className="text-gray-600 mb-4">Manage your profile settings and preferences.</p>
+                        </div>
+
                         <div className="flex flex-col items-center justify-center gap-3 my-3">
                             {userProfile?.profileImageUrl ? (
                                 <img
@@ -69,32 +72,26 @@ const Profile = () => {
                                 value={userProfile?.bio || "N/A"}
                                 placeholder="Write something about yourself..."
                                 allowInput={false}
+                                rows={6}
                             />
                         </div>
 
                         <div className="flex flex-col items-center justify-center w-full gap-3">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
                                 <SettingButton
                                     text="Update Profile"
                                     onClick={handleUpdateProfile}
                                     color="primary"
                                 />
                                 <SettingButton
-                                    text="Clear All Transactions"
+                                    text="Clear Transactions"
                                     onClick={handleClearAllTransactions}
                                     color="warning"
                                 />
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
                                 <SettingButton
                                     text="Delete Account"
                                     onClick={handleDeleteAccount}
                                     color="error"
-                                />
-                                <SettingButton
-                                    text="Contact Support"
-                                    onClick={handleContactSupport}
-                                    color="success"
                                 />
                             </div>
                         </div>
