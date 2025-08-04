@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 
-
 const Input = (props) => {
-    const { value, onChange, label, placeholder, type } = props;
+    const { value, onChange, label, placeholder, type, allowInput = true } = props;
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
@@ -21,6 +20,7 @@ const Input = (props) => {
                     className="w-full bg-transparent outline-none"
                     value={value}
                     onChange={(e) => onChange(e)}
+                    disabled={!allowInput}
                 />
 
                 {type === 'password' && (
