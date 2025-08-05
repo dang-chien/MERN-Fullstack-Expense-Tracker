@@ -1,4 +1,6 @@
 const User = require("../models/User");
+const Income = require("../models/Income");
+const Expense = require("../models/Expense");
 const jwt = require("jsonwebtoken");
 
 // Generate JWT token
@@ -75,5 +77,28 @@ exports.getUserInfo = async (req, res) => {
     res
       .status(500)
       .json({ message: "Error fetching user info", error: error.message });
+  }
+};
+
+// Delete User Account
+exports.deleteAccount = async (req, res) => {
+  try {
+    const userId = req.user.id;
+
+    const [deletedIncomes, deletedExpenses, deletedUser] = await Promise.all([
+      Income.deleteMany({ userId }),
+      Expense.deleteMany({ userId }),
+      User.findByIdAndDelete(userId),
+    ]);
+
+    if (!deletedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ message: "Account deleted successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error deleting account", error: error.message });
   }
 };

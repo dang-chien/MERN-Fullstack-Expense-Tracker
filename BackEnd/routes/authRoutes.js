@@ -6,6 +6,7 @@ const {
   registerUser,
   loginUser,
   getUserInfo,
+  deleteAccount,
 } = require("../controllers/authController");
 
 const router = express.Router();
@@ -23,5 +24,7 @@ router.post("/upload-image", upload.single("image"), (req, res) => {
   }`;
   res.status(200).json({ imageUrl });
 });
+
+router.delete("/deleteAccount", protect, deleteAccount);
 
 module.exports = router;
