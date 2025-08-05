@@ -8,7 +8,6 @@ exports.addIncome = async (req, res) => {
   try {
     const { icon, source, amount, date } = req.body;
 
-    // Validate required fields
     if (!source || !amount || !date) {
       return res.status(400).json({ message: "All fields are required" });
     }
@@ -44,8 +43,24 @@ exports.getAllIncome = async (req, res) => {
   }
 };
 
-// Delete Income Source
-exports.deleteIncome = async (req, res) => {
+// Delete All Income Sources
+exports.deleteAllIncome = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    await Income.deleteMany({ userId });
+    res
+      .status(200)
+      .json({ message: "All income sources deleted successfully" });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error deleting all income sources",
+      error: error.message,
+    });
+  }
+};
+
+/// Delete Income Source by ID
+exports.deleteIncomeWithID = async (req, res) => {
   try {
     await Income.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: "Income deleted successfully" });
@@ -62,7 +77,6 @@ exports.downloadIncomeExcel = async (req, res) => {
   try {
     const income = await Income.find({ userId }).sort({ date: -1 });
 
-    // Prepare data for Excel
     const data = income.map((item) => ({
       Source: item.source,
       Amount: item.amount,
