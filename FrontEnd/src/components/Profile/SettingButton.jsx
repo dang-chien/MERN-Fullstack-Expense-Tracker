@@ -1,13 +1,13 @@
 const SettingButton = (props) => {
-    const { text, onClick, color = 'error' } = props;
+    const { icon, onClick } = props;
 
     return (
         <button
+            className="action-btn"
             type="button"
-            className={`add-btn ${color}-btn-fill flex items-center justify-center`}
             onClick={onClick}
         >
-            <span>{text}</span>
+            {icon}
         </button>
     )
 }
