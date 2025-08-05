@@ -1,8 +1,12 @@
 # <div align="center">💰 Expense Tracker Backend API</div>
 
-<div align="justify">
+<div align="center">
 
 A robust and scalable RESTful API built with Node.js, Express.js, and MongoDB for managing personal finances. This backend service powers the Expense Tracker application, providing comprehensive user authentication, expense tracking, income management, and financial analytics.
+
+</div>
+
+<div align="justify">
 
 ## 🚀 Features
 
