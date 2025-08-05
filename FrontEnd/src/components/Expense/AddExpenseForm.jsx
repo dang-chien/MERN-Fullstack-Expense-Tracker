@@ -45,7 +45,6 @@ const AddExpenseForm = (props) => {
                     type="button"
                     className="add-btn primary-btn-fill"
                     onClick={() => {
-                        console.log("Adding Expense:", expense);
                         onAddExpense(expense);
                         setExpense({ category: "", amount: "", date: "", icon: "" });
                     }}

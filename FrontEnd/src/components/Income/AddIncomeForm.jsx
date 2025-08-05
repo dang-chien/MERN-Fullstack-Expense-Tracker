@@ -45,7 +45,6 @@ const AddIncomeForm = (props) => {
                     type="button"
                     className="add-btn primary-btn-fill"
                     onClick={() => {
-                        console.log("Adding Income:", income);
                         onAddIncome(income)
                         setIncome({ source: "", amount: "", date: "", icon: "" });
                     }}
