@@ -1,10 +1,10 @@
-# <div align="center">💰 Fullstack MERN Expense Tracker</div>
+# <div align="center">💰 MERN Fullstack Expense Tracker</div>
 
 <div align="center">
 
 A comprehensive, full-stack personal finance management application built with the MERN stack (MongoDB, Express.js, React, Node.js). This application provides users with powerful tools to track expenses, manage income, visualize financial data, and gain insights into their spending habits through beautiful charts and analytics.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg) ![Node.js](https://img.shields.io/badge/Node.js-v18+-green.svg) ![React](https://img.shields.io/badge/React-19.1.0-blue.svg) ![MongoDB](https://img.shields.io/badge/MongoDB-Latest-green.svg) ![Express](https://img.shields.io/badge/Express-5.1.0-yellow.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg) ![MongoDB](https://img.shields.io/badge/MongoDB-Latest-green.svg) ![Express](https://img.shields.io/badge/Express-5.1.0-yellow.svg) ![React](https://img.shields.io/badge/React-19.1.0-blue.svg) ![Node.js](https://img.shields.io/badge/Node.js-v18+-green.svg)
 
 </div>
 
@@ -12,7 +12,7 @@ A comprehensive, full-stack personal finance management application built with t
 
 ## 🌟 Overview
 
-The Fullstack MERN Expense Tracker is designed to help individuals take control of their personal finances through:
+The MERN Fullstack Expense Tracker is designed to help individuals take control of their personal finances through:
 
 - **Comprehensive Expense Tracking**: Categorize and monitor all your expenses with detailed analytics
 - **Income Management**: Track multiple income sources and analyze earning patterns
@@ -34,11 +34,11 @@ The Fullstack MERN Expense Tracker is designed to help individuals take control 
 
 ### Expense Analytics
 
-![Analytics](./screenshots/analytics.png) _(Screenshot coming soon)_
+![Analytics](./screenshots/analytics.png)
 
 ### Mobile View
 
-![Mobile](./screenshots/mobile.png) _(Screenshot coming soon)_
+![Mobile](./screenshots/mobile.png)
 
 ## ✨ Key Features
 
