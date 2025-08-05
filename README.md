@@ -30,7 +30,7 @@ The Fullstack MERN Expense Tracker is designed to help individuals take control 
 
 ### Dashboard Overview
 
-![Dashboard](./screenshots/dashboard.png) _(Screenshot coming soon)_
+![Dashboard](./screenshots/dashboard.png)
 
 ### Expense Analytics
 
