@@ -42,7 +42,6 @@ const IncomePage = () => {
     // Handle Add Income
     const handleAddIncome = async (income) => {
         const { source, amount, date, icon } = income;
-        console.log("Income Data:", income);
         // Validation Checks
         if (!source.trim()) {
             toast.error("Source is required!");
