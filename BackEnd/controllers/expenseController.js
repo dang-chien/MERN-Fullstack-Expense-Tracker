@@ -8,7 +8,6 @@ exports.addExpense = async (req, res) => {
   try {
     const { icon, category, amount, date } = req.body;
 
-    // Validate required fields
     if (!category || !amount || !date) {
       return res.status(400).json({ message: "All fields are required" });
     }
@@ -44,8 +43,21 @@ exports.getAllExpense = async (req, res) => {
   }
 };
 
-// Delete Expense
-exports.deleteExpense = async (req, res) => {
+// Delete All Expenses
+exports.deleteAllExpenses = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    await Expense.deleteMany({ userId });
+    res.status(200).json({ message: "All expenses deleted successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error deleting all expenses", error: error.message });
+  }
+};
+
+// Delete Expense With ID
+exports.deleteExpenseWithID = async (req, res) => {
   try {
     await Expense.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: "Expense deleted successfully" });
@@ -62,7 +74,6 @@ exports.downloadExpenseExcel = async (req, res) => {
   try {
     const expense = await Expense.find({ userId }).sort({ date: -1 });
 
-    // Prepare data for Excel
     const data = expense.map((item) => ({
       Category: item.category,
       Amount: item.amount,
