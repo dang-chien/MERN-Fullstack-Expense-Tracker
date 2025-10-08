@@ -733,7 +733,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author & Maintainer
 
-**Nhan Pham Thanh**
+**Chien Dang Cao**
 
 - 🐙 **GitHub**: [@dang-chien](https://github.com/dang-chien)
 - 📧 **Email**: [caochiendev@gmail.com]
