@@ -22,9 +22,6 @@ The MERN Fullstack Expense Tracker is designed to help individuals take control 
 - **Export Capabilities**: Download financial data as Excel files for external analysis
 - **Responsive Design**: Works seamlessly across desktop, tablet, and mobile devices
 
-## 🚀 Live Demo
-
-🔗 **[View Live Application](https://your-app-url.com)** _(Coming Soon)_
 
 ## 📸 Screenshots
 
@@ -203,7 +200,7 @@ Before you begin, ensure you have the following installed:
 #### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/NhanPhamThanh-IT/Fullstack-MERN-Expense-Tracker.git
+git clone https://github.com/dang-chien/MERN-Fullstack-Expense-Tracker.git
 cd Fullstack-MERN-Expense-Tracker
 ```
 
@@ -738,10 +735,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Nhan Pham Thanh**
 
-- 🐙 **GitHub**: [@NhanPhamThanh-IT](https://github.com/NhanPhamThanh-IT)
-- 💼 **LinkedIn**: [Your LinkedIn Profile]
-- 🌐 **Portfolio**: [Your Portfolio Website]
-- 📧 **Email**: [your.email@example.com]
+- 🐙 **GitHub**: [@dang-chien](https://github.com/dang-chien)
+- 📧 **Email**: [caochiendev@gmail.com]
 
 ## 🙏 Acknowledgments
 
@@ -800,9 +795,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 | 🚀 **Live Demo**     | [Coming Soon]                                                                                        | Try the application online       |
 | 📖 **Backend Docs**  | [Backend README](./BackEnd/README.md)                                                                | API documentation and setup      |
 | 📖 **Frontend Docs** | [Frontend README](./FrontEnd/README.md)                                                              | UI components and configuration  |
-| 🐛 **Issues**        | [GitHub Issues](https://github.com/NhanPhamThanh-IT/Fullstack-MERN-Expense-Tracker/issues)           | Bug reports and feature requests |
-| 💬 **Discussions**   | [GitHub Discussions](https://github.com/NhanPhamThanh-IT/Fullstack-MERN-Expense-Tracker/discussions) | Community Q&A and ideas          |
-| 📋 **Project Board** | [GitHub Projects](https://github.com/NhanPhamThanh-IT/Fullstack-MERN-Expense-Tracker/projects)       | Development roadmap              |
+| 🐛 **Issues**        | [GitHub Issues](https://github.com/dang-chien/MERN-Fullstack-Expense-Tracker.git)           | Bug reports and feature requests |
+| 💬 **Discussions**   | [GitHub Discussions](https://github.com/dang-chien/MERN-Fullstack-Expense-Tracker.git) | Community Q&A and ideas          |
+| 📋 **Project Board** | [GitHub Projects](https://github.com/dang-chien/MERN-Fullstack-Expense-Tracker.git)       | Development roadmap              |
 
 ---
 

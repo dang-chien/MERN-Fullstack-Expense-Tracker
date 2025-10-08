@@ -556,10 +556,6 @@ This project is licensed under the ISC License - see the [LICENSE](../LICENSE) f
 
 ## 👨‍💻 Author
 
-**Nhan Pham Thanh**
-
-- GitHub: [@NhanPhamThanh-IT](https://github.com/NhanPhamThanh-IT)
-- Portfolio: [Your Portfolio URL]
 
 ## 🙏 Acknowledgments
 
